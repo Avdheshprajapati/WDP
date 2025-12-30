@@ -1,0 +1,87 @@
+                   TABLE
+
+CREATE TABLE product (
+    product_id VARCHAR(10) PRIMARY KEY,
+    product_name VARCHAR(50) NOT NULL,
+    category VARCHAR(50) NOT NULL,
+    sub_category VARCHAR(50) NOT NULL,
+    original_price DECIMAL(10, 2) NOT NULL,
+    selling_price DECIMAL(10, 2) NOT NULL,
+    stock INT NOT NULL
+);
+
+
+                  DATA IN TABLE
+
+
+INSERT INTO product (product_id, product_name, category, sub_category, original_price, selling_price, stock) VALUES
+('P101', 'Laptop', 'Electronics', 'computer', 60000.00, 55000.00, 50),
+('P102', 'Smartphone', 'Electronics', 'phone', 45000.00, 40000.00, 20),
+('P103', 'Dining Table Set', 'Furnitures', 'table', 25000.00, 22000.00, 15),
+('P104', 'Office Chair', 'Furnitures', 'chair', 8000.00, 6500.00, 40),
+('P105', 'Bluetooth Speakers', 'Electronics', 'audio', 5000.00, 4500.00, 100),
+('P106', 'Recliner Sofa', 'Furnitures', 'sofa', 50000.00, 48000.00, 10),
+('P107', 'External Hard Drive', 'Electronics', 'storage', 7500.00, 7000.00, 60),
+('P108', 'Coffee Table', 'Furnitures', 'table', 12000.00, 10500.00, 25),
+('P109', 'LED Monitor', 'Electronics', 'computer', 18000.00, 16500.00, 30),
+('P110', 'Bookshelf', 'Furnitures', 'storage', 9000.00, 8100.00, 35);
+
+                  USING BETWEEN 
+
+UPDATE product
+SET original_price = original_price - original_price * 0.1
+WHERE selling_price BETWEEN 10000 AND 20000;
+
+                   USING NOT BETWEEN:
+
+UPDATE product 
+SET selling_price = selling_price + selling_price * 0.1
+WHERE selling_price NOT BETWEEN 10000 AND 50000;
+
+
+                     USING LIKE 
+
+SELECT * FROM product
+WHERE product_name LIKE 'L%';
+
+SELECT * FROM product
+WHERE product_name LIKE '%e';
+
+SELECT * FROM product
+WHERE product_name LIKE '_e';
+
+
+                    USING IN
+
+SELECT * FROM product
+WHERE sub_category IN ('computer','table');
+
+                   NOT IN
+
+SELECT * FROM product
+WHERE sub_category NOT IN ('computer','table');
+
+
+                  USING IS
+
+SELECT * FROM product WHERE sub_category IS NOT NULL;
+
+                 USNING ORDER BY
+
+SELECT * FROM product
+ORDER BY stock DESC LIMIT 5;
+
+                USNIG GROUP BY
+
+SELECT sub_category, COUNT(stock) AS stocks
+FROM product
+GROUP BY sub_category;
+
+                USING UNION
+
+SELECT * FROM customer UNION SELECT * FROM product;
+
+               
+
+
+               

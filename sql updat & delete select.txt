@@ -1,0 +1,39 @@
+                  CREATING TABLE
+
+CREATE TABLE customer (
+customer_id varchar(10) NOT NULL primary key,
+name varchar(100) NOT NULL,
+city varchar(65) NOT NULL,
+email varchar(45) NOT NULL,
+phone_no varchar(15) NOT NULL,
+address varchar(100) NOT NULL,
+pin_code int NOT NULL
+);
+
+
+
+                 INSERTING THE VALUE
+
+
+insert into customer(customer_id,name,city,email,phone_no,address,pin_code) values
+('C1001','Steve','Tokyo','steve@gmail.com','4567897652','f.g.road', 100-0001),
+('C1002','john','Sydney','john@gmail.com','9987234567','k.c.road', 75001),
+('C1003','Peter','Kanagawa','peter@gmail.com','9969834567','2F Ikenobecho',
+224-0053),
+('C1004','Jackson','Tokyo','Jackson@gmail.com','7765834567','24-2, Sendagaya',
+151-8580),
+('C1005','Jack','Lake Buena Vista','Jack@gmail.com','8876345678','1520 E Buena Vista
+Drive', 32830);
+
+
+
+                    USING  UPDATE QUERY
+
+
+UPDATE customer SET name = 'Avdhesh' WHERE customer_id = 'C1005';
+
+                    USING DELETE QUERY
+
+DELETE FROM customer WHERE customer_id = 'C1005';
+
+
